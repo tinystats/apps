@@ -1,0 +1,51 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(learnr)
+
+set.seed(12)
+x1 <- rnorm(50, 10, 2)
+
+x2 <- scale(matrix(rnorm(50), ncol=1))
+x12 <- cbind(scale(x1),x2)
+
+c1 <- var(x12)
+chol1 <- solve(chol(c1))
+newx <-  x12 %*% chol1
+
+newc <- matrix(c(1,-0.52, -0.52, 1), ncol=2)
+chol2 <- chol(newc)
+finalx <- newx %*% chol2 * sd(x1) + mean(x1)
+
+finalx[,2] <- (2*finalx[,2]-5)
+
+giraffe_data <- finalx
+colnames(giraffe_data) <- c("Heights", "Celery_Eaten")
+
+giraffe_data <- as.data.frame(giraffe_data)
+
+
+```
+
+```{r 05-scatter2, exercise=TRUE}
+# Customize your ggplot
+
+```
+
+```{r 05-scatter2-solution}
+p <-  ggplot(data= giraffe_data, aes(x= Heights, y=Celery_Eaten)) +
+  geom_point(size = 3) + geom_vline(xintercept = mean(giraffe_data$Heights), col="grey50", linetype="dashed", size = 2) + geom_hline(yintercept = mean(giraffe_data$Celery_Eaten), col= "grey81", linetype="dashed", size= 2)
+
+p <- p + theme_light() + theme(panel.border = element_blank(), panel.grid.minor=element_blank())
+
+p
+```
+
+<div data-iframe-height></div>

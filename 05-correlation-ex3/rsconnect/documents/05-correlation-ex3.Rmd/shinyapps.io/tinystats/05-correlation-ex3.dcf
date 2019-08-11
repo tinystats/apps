@@ -1,0 +1,12 @@
+name: 05-correlation-ex3
+title: 05-correlation-ex3
+username:
+account: tinystats
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1079029
+bundleId: 2308892
+url: https://tinystats.shinyapps.io/05-correlation-ex3/
+when: 1565523481.62812
+asMultiple: FALSE
+asStatic: FALSE
