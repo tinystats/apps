@@ -1,0 +1,98 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+
+set.seed(12)
+x1 <- rnorm(50, 10, 2)
+
+x2 <- scale(matrix(rnorm(50), ncol=1))
+x12 <- cbind(scale(x1),x2)
+
+c1 <- var(x12)
+chol1 <- solve(chol(c1))
+newx <-  x12 %*% chol1
+
+newc <- matrix(c(1,-0.52, -0.52, 1), ncol=2)
+chol2 <- chol(newc)
+finalx <- newx %*% chol2 * sd(x1) + mean(x1)
+
+finalx[,2] <- (2*finalx[,2]-5)
+
+giraffe_data <- finalx
+colnames(giraffe_data) <- c("Heights", "Celery_Eaten")
+
+giraffe_data <- as.data.frame(giraffe_data)
+points <- giraffe_data[c(12, 50, 14, 43, 32),]
+
+```
+
+```{r 05-code1, exercise=TRUE}
+my_covariance <- function(x,y){
+
+  return( )
+}
+
+my_correlation <- function(x,y){
+
+ return( )
+}
+
+
+# Use your function my_covariance( ) to compute the covariance between Heights and Celery_Eaten
+
+
+# Compare the output with the base R function cov( )
+
+
+# Use your function my_correlation( ) to compute the correlation between Heights and Celery_Eaten
+
+
+# Compare the output with the base R function cor( )
+
+
+```
+
+```{r 05-code1-solution}
+my_covariance <- function(x,y){
+  m_x <- mean(x)
+  m_y <- mean(y)
+
+  deviation_x <- x - m_x
+  deviation_y <- y - m_y
+  
+  crossproduct <- deviation_x * deviation_y
+
+  covariance <-  sum(crossproduct) / (length(x)-1) # Divides by N-1
+  return(covariance)
+}
+
+my_correlation <- function(x,y){
+ correlation <- my_covariance(x,y) / (sd(x)*sd(y))
+ return(correlation)
+}
+
+
+# Use your function my_covariance( ) to compute the covariance between Heights and Celery_Eaten
+ my_covariance(giraffe_data$Heights, giraffe_data$Celery_Eaten)
+
+# Compare the output
+ cov(giraffe_data$Heights, giraffe_data$Celery_Eaten)
+
+
+# Use your function my_correlation( ) to compute the correlation between Heights and Celery_Eaten
+ my_correlation(giraffe_data$Heights, giraffe_data$Celery_Eaten)
+
+# Compare the output
+ cor(giraffe_data$Heights, giraffe_data$Celery_Eaten)
+
+
+```
+
+<div data-iframe-height></div>
