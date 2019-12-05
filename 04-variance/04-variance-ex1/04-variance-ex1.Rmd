@@ -1,0 +1,59 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "Variance function")
+
+set.seed(12)
+heights_island1 <- rnorm(50,10,2)
+
+```
+
+```{r 04-variance, exercise=TRUE}
+# Create your own functions for calculating the variance and standard deviation
+my_variance <- function(x){
+ 
+}
+
+my_variance(heights_island1) # Use your function on the heights_island1 vector
+var( ) # Compare the output with the base R function
+
+
+my_sd <- function(x){
+ 
+}
+
+my_sd(heights_island1) # Use your function on the heights_island1 vector
+sd( ) # Compare the output with the base R function
+```
+
+```{r 04-variance-solution}
+my_variance <- function(x){
+  m <- mean(x)
+  deviation <- x - m
+  sum_of_squares <- sum(deviation^2)
+  variance <-  sum_of_squares / (length(x)-1) # Divides by N-1
+  return(variance)
+}
+
+my_variance(heights_island1)
+var(heights_island1)
+
+
+my_sd <- function(x){
+  variance <-  my_variance(x)
+  standard_deviation <- sqrt(variance)
+  return(standard_deviation)
+}
+
+my_sd(heights_island1)
+sd(heights_island1)
+```
+
+<div data-iframe-height></div>
