@@ -1,0 +1,18 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "Calculator")
+```
+
+```{r 04-variance, exercise=TRUE}
+# Model your code off of the example for n = 3
+```
+
+<div data-iframe-height></div>
