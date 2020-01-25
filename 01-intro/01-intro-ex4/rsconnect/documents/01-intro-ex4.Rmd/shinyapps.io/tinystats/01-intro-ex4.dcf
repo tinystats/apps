@@ -1,0 +1,12 @@
+name: 01-intro-ex4
+title: 01-intro-ex4
+username:
+account: tinystats
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1703594
+bundleId: 2752864
+url: https://tinystats.shinyapps.io/01-intro-ex4/
+when: 1579965681.36057
+asMultiple: FALSE
+asStatic: FALSE

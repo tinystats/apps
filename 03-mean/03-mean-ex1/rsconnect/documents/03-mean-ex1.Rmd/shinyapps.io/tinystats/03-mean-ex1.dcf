@@ -1,0 +1,12 @@
+name: 03-mean-ex1
+title: 03-mean-ex1
+username:
+account: tinystats
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1703678
+bundleId: 2752926
+url: https://tinystats.shinyapps.io/03-mean-ex1/
+when: 1579969178.30885
+asMultiple: FALSE
+asStatic: FALSE

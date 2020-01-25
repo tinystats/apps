@@ -1,0 +1,32 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "Objects")
+```
+
+
+```{r 01-objects, exercise=TRUE}
+my_object <- 
+my_object
+
+my_object2 <- 
+
+my_object + my_object2
+```
+
+```{r 01-objects-solution}
+my_object <- 5
+my_object
+
+my_object2 <- 6
+
+my_object + my_object2
+```
+<div data-iframe-height></div>

@@ -1,0 +1,12 @@
+name: 03-mean-ex4a
+title: 03-mean-ex4a
+username:
+account: tinystats
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1703945
+bundleId: 2753059
+url: https://tinystats.shinyapps.io/03-mean-ex4a/
+when: 1579978225.92326
+asMultiple: FALSE
+asStatic: FALSE

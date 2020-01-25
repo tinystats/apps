@@ -1,0 +1,45 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "SEM")
+
+samp <- function(n){
+  x <- rnorm(n, 9.7, 2.1)
+  m <- mean(x)
+  return(m)
+}
+sampling_distribution_N50 <- as.vector(do.call(rbind, lapply(1:10000, function(x) samp(50))))
+
+
+set.seed(12)
+heights_island1 <- rnorm(50,10,2)
+
+```
+
+```{r 06-sem2, exercise=TRUE}
+# Apply the SEM equation to `heights_island1` and compare the result to the standard deviation of the sampling distribution
+
+heights_island1
+
+sampling_distribution_N50
+
+```
+
+```{r 06-sem2-solution}
+# Apply the SEM equation to `heights_island1` and compare the result to the standard deviation of the sampling distribution
+
+SEM_heights_island1 <- sd(heights_island1)/sqrt(50)
+SEM_heights_island1
+
+sd(sampling_distribution_N50)
+
+```
+
+<div data-iframe-height></div>

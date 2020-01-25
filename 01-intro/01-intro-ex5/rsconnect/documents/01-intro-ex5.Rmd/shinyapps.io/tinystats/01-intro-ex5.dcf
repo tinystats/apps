@@ -1,0 +1,12 @@
+name: 01-intro-ex5
+title: 01-intro-ex5
+username:
+account: tinystats
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1703610
+bundleId: 2752870
+url: https://tinystats.shinyapps.io/01-intro-ex5/
+when: 1579966039.96234
+asMultiple: FALSE
+asStatic: FALSE

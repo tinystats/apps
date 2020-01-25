@@ -192,14 +192,24 @@ summary {
 </div>
 
 
-<div class="tutorial-exercise" data-label="02-ggplot" data-caption="ggplot" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># Create a scatterplot using the instructions above
+<div class="tutorial-exercise" data-label="02-ggplot2" data-caption="ggplot" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>#Fill in the incomplete arguments below
 
-p &lt;- ggplot(data = d, aes(x = Height)) + 
-  geom_histogram(binwidth=1)
-
+p &lt;- ggplot(data = d, aes(x = Height, fill = )) +
+  geom_histogram(binwidth = 1, color = ) +
+  scale_fill_manual(values = c( ))
+  
 p</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":7,"fig.height":5,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":672,"warning":true,"error":false,"message":true,"exercise.df_print":"default","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="02-ggplot2-solution" data-caption="ggplot" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>#Fill in the incomplete arguments below
+
+p &lt;- ggplot(data = d, aes(x = Height, fill = Location)) +
+  geom_histogram(binwidth = 1, color = &quot;white&quot;) +
+  scale_fill_manual(values = c(&quot;green3&quot;, &quot;turquoise3&quot;))
+  
+p</code></pre>
 </div>
 <div data-iframe-height="">
 
@@ -227,9 +237,9 @@ learnr:::register_http_handlers(session, metadata = NULL)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-02-ggplot-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-02-ggplot-code-editor`)), session)
-output$`tutorial-exercise-02-ggplot-output` <- renderUI({
-  `tutorial-exercise-02-ggplot-result`()
+`tutorial-exercise-02-ggplot2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-02-ggplot2-code-editor`)), session)
+output$`tutorial-exercise-02-ggplot2-output` <- renderUI({
+  `tutorial-exercise-02-ggplot2-result`()
 })
 </script>
  <!--html_preserve-->

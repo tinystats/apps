@@ -1,0 +1,42 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "Own function")
+```
+
+
+```{r 01-function, exercise=TRUE}
+# Use the instructions above to complete the function below
+my_function_name <- function(input_data){
+  s <- sum( )
+  ss <- sqrt( )
+  return( )
+}
+
+# Create a new object and try out your new function
+my_combined_values <- c(,) 
+
+my_function_name(my_combined_values)
+```
+
+```{r 01-function-solution}
+# Use the instructions above to complete the function below
+my_function_name <- function(input_data){
+  s <- sum(input_data)
+  ss <- sqrt(s)
+  return(ss)
+}
+
+# Create a new object and try out your new function
+my_combined_values <- c(4,15,81) 
+
+my_function_name(my_combined_values)
+```
+<div data-iframe-height></div>

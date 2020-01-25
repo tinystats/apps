@@ -1,0 +1,56 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(ggplot2)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "Even or odd")
+
+set.seed(12)
+heights_island1 <- rnorm(50,10,2)
+
+```
+
+```{r 03-median, exercise=TRUE}
+# Complete the code below to create your own function that will calculate the median of any vector
+
+my_median <- function(vector){
+  if( ){
+   
+  }else{ 
+   
+  }
+}
+
+# Verify that your function correctly calculates the median.
+my_median(heights_island1)
+median(heights_island1)
+```
+
+```{r 03-median-solution}
+# Complete the code below to create your own function that will calculate the median of any vector
+my_median <- function(vector){
+  ordered_heights <- sort(vector, decreasing = FALSE)
+  if(length(ordered_heights) %% 2 == 0){
+   position1 <- length(ordered_heights) / 2
+   position2 <- position1 + 1
+   temp_values <- ordered_heights[c(position1, position2)]
+   median <- mean(temp_values)
+  }else{ 
+   position <- (length(ordered_heights) + 1) / 2
+   median <- ordered_heights[position]
+  }
+  return(median)
+}
+
+# Verify that your function correctly calculates the median.
+my_median(heights_island1)
+median(heights_island1) 
+```
+
+<div data-iframe-height></div>

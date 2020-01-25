@@ -1,0 +1,51 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "95% CIs")
+
+set.seed(12)
+heights_island1 <- rnorm(50,10,2)
+
+```
+
+```{r 06-sem3, exercise=TRUE}
+# Calculate the SEM for heights_island1
+SEM_heights_island1 <- 
+
+# Calculate the sample mean
+heights_island1_mean <- 
+
+# Add ± 1.96 SEM to the sample mean to construct the upper and lower bounds of the 95% CI
+
+upperCI <- 
+lowerCI <- 
+  
+heights_island1_95CI <- c(lowerCI, upperCI)
+heights_island1_95CI
+
+```
+
+```{r 06-sem3-solution}
+# Calculate the SEM for heights_island1
+SEM_heights_island1 <- sd(heights_island1)/sqrt(50)
+
+# Calculate the sample mean
+heights_island1_mean <- mean(heights_island1)
+
+# Add ±  1.96 SEM to the sample mean to construct the upper and lower bounds of the 95% CI
+
+upperCI <- heights_island1_mean + 1.96 * SEM_heights_island1
+lowerCI <- heights_island1_mean - 1.96 * SEM_heights_island1
+ 
+heights_island1_95CI <- c(lowerCI, upperCI)
+heights_island1_95CI
+```
+
+<div data-iframe-height></div>

@@ -9,7 +9,7 @@ runtime: shiny_prerendered
 ```{r setup, include=FALSE}
 library(learnr)
 library(ggplot2)
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "ggplot")
 
 set.seed(12)
 

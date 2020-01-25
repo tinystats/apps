@@ -1,0 +1,36 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(ggplot2)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "Even or odd")
+
+set.seed(12)
+heights_island1 <- rnorm(50,10,2)
+
+```
+
+```{r 03-even, exercise=TRUE}
+# Print a different result dependent on whether a number is even or odd
+
+if(length(heights_island1) %% 2 == 0) {
+  print("EVEN!")
+} else {
+    print("ODD!")
+}
+
+
+if((length(heights_island1)-1) %% 2 == 0) {
+  print("EVEN!")
+} else {
+    print("ODD!")
+}
+```
+
+<div data-iframe-height></div>

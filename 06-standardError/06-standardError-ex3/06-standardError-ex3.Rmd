@@ -1,0 +1,37 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "SEM calculator")
+
+```
+
+```{r 06-sem, exercise=TRUE}
+# Hover over a point and record the N and SEM values
+SEM = 
+N =
+SD = 2.1
+  
+# Use the plot and the hints above to see if you can deduce the equation for the standard error of the mean
+```
+
+```{r 06-sem-solution}
+# Hover over a point and record the N and SEM values
+SEM = 0.542 # These can be any corresponding pair of SEM and N values from the plot
+N = 15
+SD = 2.1
+  
+# Use the plot and the hints above to see if you can deduce the equation for the standard error of the mean
+
+SD/sqrt(N) # This is the same as the SEM (allow for rounding error)
+
+SEM
+```
+
+<div data-iframe-height></div>

@@ -192,14 +192,41 @@ summary {
 </div>
 
 
-<div class="tutorial-exercise" data-label="02-ggplot" data-caption="ggplot" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># Create a scatterplot using the instructions above
+<div class="tutorial-exercise" data-label="03-median" data-caption="Even or odd" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># Complete the code below to create your own function that will calculate the median of any vector
 
-p &lt;- ggplot(data = d, aes(x = Height)) + 
-  geom_histogram(binwidth=1)
+my_median &lt;- function(vector){
+  if( ){
+   
+  }else{ 
+   
+  }
+}
 
-p</code></pre>
+# Verify that your function correctly calculates the median.
+my_median(heights_island1)
+median(heights_island1)</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":7,"fig.height":5,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":672,"warning":true,"error":false,"message":true,"exercise.df_print":"default","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="03-median-solution" data-caption="Even or odd" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># Complete the code below to create your own function that will calculate the median of any vector
+my_median &lt;- function(vector){
+  ordered_heights &lt;- sort(vector, decreasing = FALSE)
+  if(length(ordered_heights) %% 2 == 0){
+   position1 &lt;- length(ordered_heights) / 2
+   position2 &lt;- position1 + 1
+   temp_values &lt;- ordered_heights[c(position1, position2)]
+   median &lt;- mean(temp_values)
+  }else{ 
+   position &lt;- (length(ordered_heights) + 1) / 2
+   median &lt;- ordered_heights[position]
+  }
+  return(median)
+}
+
+# Verify that your function correctly calculates the median.
+my_median(heights_island1)
+median(heights_island1) </code></pre>
 </div>
 <div data-iframe-height="">
 
@@ -208,17 +235,10 @@ p</code></pre>
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
 library(ggplot2)
-knitr::opts_chunk$set(echo = FALSE, exercise.cap = "ggplot")
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "Even or odd")
 
 set.seed(12)
-
-x <- rnorm(50, 10, 2)
-x2 <- rnorm(50, 18, 1.2)
-x <- data.frame(x=x, type="Island #1")
-x2 <- data.frame(x=x2, type="Island #2")
-
-d <- rbind(x,x2)
-colnames(d) <- c("Height", "Location")
+heights_island1 <- rnorm(50,10,2)
 
 </script>
  
@@ -227,9 +247,9 @@ learnr:::register_http_handlers(session, metadata = NULL)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-02-ggplot-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-02-ggplot-code-editor`)), session)
-output$`tutorial-exercise-02-ggplot-output` <- renderUI({
-  `tutorial-exercise-02-ggplot-result`()
+`tutorial-exercise-03-median-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-03-median-code-editor`)), session)
+output$`tutorial-exercise-03-median-output` <- renderUI({
+  `tutorial-exercise-03-median-result`()
 })
 </script>
  <!--html_preserve-->

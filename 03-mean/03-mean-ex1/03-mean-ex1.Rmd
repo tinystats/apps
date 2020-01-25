@@ -1,0 +1,40 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(ggplot2)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "Mean by hand")
+
+set.seed(12)
+heights_island1 <- rnorm(50,10,2)
+
+```
+
+```{r 03-mean, exercise=TRUE}
+# Sum up all observations stored in heights, using the sum( ) function, and save it as a new object called "heights_island1_sum"
+
+
+# Divide heights_island1_sum by the number of observations. Use the length( ) function for n. Store your answer as "heights_island1_mean"
+
+
+# Print out "heights_island1_mean" and compare your answer to the R function "mean(heights_island1)"
+```
+
+```{r 03-mean-solution}
+# Sum up all observations stored in "heights_island1", using the sum() function, and save it as a new object called "heights_island1_sum"
+heights_island1_sum <- sum(heights_island1)
+
+# Divide heights_island1_sum by the number of observations. Use the length() function for n. Store your answer as "heights1_mean"
+heights_island1_mean <- heights_island1_sum/length(heights_island1)
+
+# Print out "heights_island1_mean" and compare your answer to the R function "mean(heights_island1)"
+heights_island1_mean
+mean(heights_island1)
+```
+<div data-iframe-height></div>

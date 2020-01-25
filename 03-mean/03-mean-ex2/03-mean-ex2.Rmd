@@ -1,0 +1,44 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(ggplot2)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "My mean function")
+
+set.seed(12)
+heights_island1 <- rnorm(50,10,2)
+
+```
+
+```{r 03-mean2, exercise=TRUE}
+# Complete the code below to create your own function that will calculate the mean of any vector
+
+my_mean <- function(vector){
+ 
+}
+
+# Verify that your function correctly calculates the mean
+my_mean(heights_island1)
+mean(heights_island1)
+```
+
+```{r 03-mean2-solution}
+# Complete the code below to create your own function that will calculate the mean of any vector
+
+my_mean <- function(vector){
+  a <- sum(vector)
+  b <- a/length(vector)
+  return(b)
+}
+
+# Verify that your function correctly calculates the mean.
+my_mean(heights_island1)
+mean(heights_island1)
+```
+<div data-iframe-height></div>

@@ -1,0 +1,36 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "N and sampling distribution", warning = FALSE)
+library(ggplot2)
+
+plot_hist <- function(N){
+  m <- do.call(rbind, lapply(1:1000, function(x) mean(rnorm(N, 10, 2))))
+  m <- as.data.frame(m)
+  colnames(m) <- "Height"
+  ggplot(data = m, aes(x = Height)) +
+  geom_histogram(binwidth = 0.1, color = "white", fill = "green3") +
+  theme_light() +
+  scale_y_continuous(expand = c(0,0)) +
+  xlim(5,15) + 
+  labs(x=paste0("Sample means N = ", N), y = "Frequency") +
+  theme(panel.border = element_blank(), panel.grid.minor = element_blank())  
+}
+
+```
+
+```{r 06-sampling, exercise=TRUE}
+# Set N equal to different sample sizes and test its effect on the sampling distribution
+plot_hist(N= )
+```
+
+
+
+<div data-iframe-height></div>

@@ -192,14 +192,10 @@ summary {
 </div>
 
 
-<div class="tutorial-exercise" data-label="02-ggplot" data-caption="ggplot" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code># Create a scatterplot using the instructions above
-
-p &lt;- ggplot(data = d, aes(x = Height)) + 
-  geom_histogram(binwidth=1)
-
-p</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":7,"fig.height":5,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":672,"warning":true,"error":false,"message":true,"exercise.df_print":"default","exercise.checker":"NULL"}</script>
+<div class="tutorial-exercise" data-label="06-sampling" data-caption="N and sampling distribution" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># Set N equal to different sample sizes and test its effect on the sampling distribution
+plot_hist(N= )</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":7,"fig.height":5,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":672,"warning":false,"error":false,"message":true,"exercise.df_print":"default","exercise.checker":"NULL"}</script>
 </div>
 <div data-iframe-height="">
 
@@ -207,18 +203,21 @@ p</code></pre>
 
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "N and sampling distribution", warning = FALSE)
 library(ggplot2)
-knitr::opts_chunk$set(echo = FALSE, exercise.cap = "ggplot")
 
-set.seed(12)
-
-x <- rnorm(50, 10, 2)
-x2 <- rnorm(50, 18, 1.2)
-x <- data.frame(x=x, type="Island #1")
-x2 <- data.frame(x=x2, type="Island #2")
-
-d <- rbind(x,x2)
-colnames(d) <- c("Height", "Location")
+plot_hist <- function(N){
+  m <- do.call(rbind, lapply(1:1000, function(x) mean(rnorm(N, 10, 2))))
+  m <- as.data.frame(m)
+  colnames(m) <- "Height"
+  ggplot(data = m, aes(x = Height)) +
+  geom_histogram(binwidth = 0.1, color = "white", fill = "green3") +
+  theme_light() +
+  scale_y_continuous(expand = c(0,0)) +
+  xlim(5,15) + 
+  labs(x=paste0("Sample means N = ", N), y = "Frequency") +
+  theme(panel.border = element_blank(), panel.grid.minor = element_blank())  
+}
 
 </script>
  
@@ -227,9 +226,9 @@ learnr:::register_http_handlers(session, metadata = NULL)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-02-ggplot-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-02-ggplot-code-editor`)), session)
-output$`tutorial-exercise-02-ggplot-output` <- renderUI({
-  `tutorial-exercise-02-ggplot-result`()
+`tutorial-exercise-06-sampling-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-06-sampling-code-editor`)), session)
+output$`tutorial-exercise-06-sampling-output` <- renderUI({
+  `tutorial-exercise-06-sampling-result`()
 })
 </script>
  <!--html_preserve-->

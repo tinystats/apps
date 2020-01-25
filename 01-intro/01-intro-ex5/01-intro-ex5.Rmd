@@ -1,0 +1,30 @@
+---
+output: 
+  html_document:
+    includes:
+      in_header: test1.html
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE, exercise.cap = "Data frames")
+```
+
+
+```{r 01-frame, exercise=TRUE}
+x_values <- c(,)
+y_values <- c(,)
+
+d <- data.frame(x = x_values, y = y_values)
+d
+```
+
+```{r 01-frame-solution}
+x_values <- c("Teacup","Giraffe")
+y_values <- c(83,45)
+
+d <- data.frame(x = x_values, y = y_values)
+d
+```
+<div data-iframe-height></div>
