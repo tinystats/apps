@@ -1,0 +1,12 @@
+name: Guess_corr
+title: Guess_corr
+username:
+account: haswal
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1079167
+bundleId: 2315393
+url: https://haswal.shinyapps.io/Guess_corr/
+when: 1565707648.43712
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,12 @@
+name: Guess_corr
+title: Guess_corr
+username:
+account: tinystats
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1502390
+bundleId: 2604933
+url: https://tinystats.shinyapps.io/Guess_corr/
+when: 1574280685.29174
+asMultiple: FALSE
+asStatic: FALSE
